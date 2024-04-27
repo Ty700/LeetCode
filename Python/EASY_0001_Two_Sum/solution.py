@@ -34,16 +34,9 @@ class Solution(object):
         for index, val in enumerate(nums):
             search_val = target - val
 
-            # If the value we are searching for to add to current val is in map
-            # Then we know that the previous val + current val = target
-            # thus return the value when searching the dict using the previous val as the key
-            # as it's the index
             if search_val in prev_vals.keys():
                 return [prev_vals[search_val], index]
 
-            # If the search val is not in dictionary, we know that no value we've seen previously
-            # added to the current val = the target
-            # so store the val and index in the map with val being the key and index being value
             else:
                 prev_vals[val] = index
             
