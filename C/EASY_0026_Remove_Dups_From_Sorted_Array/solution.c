@@ -1,11 +1,17 @@
 int removeDuplicates(int* nums, int numsSize) {
-    int left = 1;
+    int left = 0, right = 0;
 
-    for(int right = 1; right < numsSize; right++){
-        if(nums[right] != nums[right - 1]){
-            nums[left] = nums[right];
-            left += 1;
+    while(right < numsSize){
+        /* Search for the first non-dup */
+        if (nums[left] == nums[right]){
+            right += 1;
+            continue;
         }
+
+        /* Non-dupe has been found */
+        nums[left + 1] = nums[right];
+        left += 1;
     }
-    return left;
+
+    return left + 1;
 }
