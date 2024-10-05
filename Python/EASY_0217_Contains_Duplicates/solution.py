@@ -35,4 +35,10 @@
 
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
-        return not (len(nums) == len(set(nums)))
+        hashed_set = set()
+
+        for n in nums:
+            if n in hashed_set:
+                return True
+            hashed_set.add(n)
+        return False
